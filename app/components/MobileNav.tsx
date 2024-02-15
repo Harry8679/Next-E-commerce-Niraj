@@ -24,21 +24,21 @@ export function MobileNav({ open, onClose, menuItems }: Props) {
 
   return (
     <>
-      <Drawer open={open} onClose={onClose}>
+      <Drawer placeholder='' open={open} onClose={onClose}>
         <div className="mb-2 flex items-center justify-between p-4 z-50">
-          <Typography variant="h5" color="blue-gray">
+          <Typography placeholder='' variant="h5" color="blue-gray">
             Next Ecom
           </Typography>
-          <IconButton variant="text" color="blue-gray" onClick={onClose}>
+          <IconButton placeholder='' variant="text" color="blue-gray" onClick={onClose}>
             <XMarkIcon strokeWidth={2} className="h-5 w-5" />
           </IconButton>
         </div>
-        <List>
+        <List placeholder=''>
           {menuItems.map(({ href, icon, label }) => {
             return (
               <Link key={href} href={href}>
-                <ListItem onClick={onClose}>
-                  <ListItemPrefix>{icon}</ListItemPrefix>
+                <ListItem placeholder='' onClick={onClose}>
+                  <ListItemPrefix placeholder=''>{icon}</ListItemPrefix>
                   {label}
                 </ListItem>
               </Link>
@@ -47,8 +47,8 @@ export function MobileNav({ open, onClose, menuItems }: Props) {
 
           {isAdmin ? (
             <Link href="/dashboard">
-              <ListItem onClick={onClose}>
-                <ListItemPrefix>
+              <ListItem placeholder='' onClick={onClose}>
+                <ListItemPrefix placeholder=''>
                   <RectangleGroupIcon className="h-4 w-4" />
                 </ListItemPrefix>
                 Dashboard
@@ -57,8 +57,8 @@ export function MobileNav({ open, onClose, menuItems }: Props) {
           ) : null}
 
           {loggedIn ? (
-            <ListItem>
-              <ListItemPrefix>
+            <ListItem placeholder=''>
+              <ListItemPrefix placeholder=''>
                 <PowerIcon className="h-5 w-5" />
               </ListItemPrefix>
               Sign Out

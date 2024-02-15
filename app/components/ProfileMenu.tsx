@@ -28,12 +28,12 @@ import {
     return (
       <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
         <MenuHandler>
-          <Button
+          <Button placeholder=''
             variant="text"
             color="blue-gray"
             className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
           >
-            <Avatar
+            <Avatar placeholder=''
               variant="circular"
               size="sm"
               alt="candice wu"
@@ -49,11 +49,11 @@ import {
           </Button>
         </MenuHandler>
   
-        <MenuList className="p-1">
+        <MenuList className="p-1" placeholder=''>
           {menuItems.map(({ href, icon, label }) => {
             return (
               <Link key={href} href={href} className="outline-none">
-                <MenuItem
+                <MenuItem placeholder=''
                   onClick={closeMenu}
                   className="flex items-center gap-2 rounded"
                 >
@@ -66,7 +66,7 @@ import {
   
           {isAdmin ? (
             <Link href="/dashboard" className="outline-none">
-              <MenuItem
+              <MenuItem placeholder=''
                 onClick={closeMenu}
                 className="flex items-center gap-2 rounded"
               >
@@ -76,7 +76,7 @@ import {
             </Link>
           ) : null}
   
-          <MenuItem>
+          <MenuItem placeholder=''>
             <p className="flex items-center gap-2 rounded">
               <PowerIcon className="h-4 w-4" />
               <span>Sign Out</span>
