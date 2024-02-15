@@ -6,6 +6,7 @@ import { Button, Input } from "@material-tailwind/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import { useFormik } from 'formik';
 import * as yup from 'yup';
+import { filterFormikErrors } from "@/app/utils/formikHelpers";
 
 const validationSchema = yup.object().shape({
     name: yup.string().required('Name is required'),
@@ -21,17 +22,16 @@ export default function SignUp() {
         console.log(values);
     }
   });
-  const formErrors: string[] = [];
 
-  console.log(errors);
+  const formErrors: string[] = filterFormikErrors(errors, touched, values);
 
   const { name, email, password } = values;
 
   return (
     <AuthFormContainer title="Create New Account" onSubmit={handleSubmit}>
-      <Input crossOrigin='' name="name" label="Name" onChange={handleChange} value={name} />
-      <Input crossOrigin='' name="email" label="Email" onChange={handleChange} value={email} />
-      <Input crossOrigin='' name="password" label="Password" type="password" onChange={handleChange} value={password} />
+      <Input crossOrigin='' name="name" label="Name" onChange={handleChange} onBlur={handleBlur} value={name} />
+      <Input crossOrigin='' name="email" label="Email" onChange={handleChange} onBlur={handleBlur} value={email} />
+      <Input crossOrigin='' name="password" label="Password" type="password" onChange={handleChange}  onBlur={handleBlur} value={password} />
       <Button placeholder='' type="submit" className="w-full">
         Sign up
       </Button>
